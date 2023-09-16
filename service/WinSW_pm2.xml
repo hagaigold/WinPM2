@@ -1,0 +1,105 @@
+<!--
+  MIT License
+
+  Copyright (c) 2008-2020 Kohsuke Kawaguchi, Sun Microsystems, Inc., CloudBees,
+  Inc., Oleg Nenashev and other contributors
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+-->
+
+<service>
+  
+  <id>pm2_service</id>
+  <name>PM2 Service</name>
+  <description>PM2 Service (powered by WinSW)</description>
+  
+  <executable>%BASE%\pm2_service_startup.bat</executable>
+
+  <log mode="roll" />
+
+  <!--
+    OPTION: serviceaccount
+    Defines account, under which the service should run.
+  -->
+  
+  <serviceaccount>
+    <domain>NT AUTHORITY</domain>
+    <user>LocalService</user>
+    <password></password>
+    <allowservicelogon>true</allowservicelogon>
+  </serviceaccount>
+ 
+
+  <!--
+    OPTION: onfailure
+    Defines a sequence of actions, which should be performed if the managed executable fails.
+    Supported actions: restart, reboot, none
+  -->
+  
+  <onfailure action="restart" delay="20 sec"/>
+  <onfailure action="restart" delay="30 sec"/>
+  <onfailure action="restart" delay="5 min"/>
+ 
+  
+  <!--
+    OPTION: resetfailure
+    Time, after which the Windows service resets the failure status.
+    Default value: 1 day
+  -->
+  
+  <resetfailure>1 hour</resetfailure>
+ 
+  <!--
+    OPTION: startmode
+    Defines start mode of the service.
+    Supported modes: Automatic, Manual, Boot, System (latter ones are supported for driver services only)
+    Default mode: Automatic
+  -->
+  <startmode>Automatic</startmode>
+    
+  <!--
+    OPTION: delayedAutoStart
+    Enables the Delayed Automatic Start if 'Automatic' is specified in the 'startmode' field.
+    See the WinSW documentation to get info about supported platform versions and limitations.
+  -->
+  <delayedAutoStart/>
+
+  <!--
+    OPTION: log
+    Defines logging mode for logs produced by the executable.
+    Supported modes:
+      * append - Rust update the existing log
+      * none - Do not save executable logs to the disk
+      * reset - Wipe the log files on startup
+      * roll - Roll logs based on size
+      * roll-by-time - Roll logs based on time
+      * rotate - Rotate logs based on size, (8 logs, 10MB each). This mode is deprecated, use "roll"
+    Default mode: append
+    
+    Each mode has different settings. 
+    See https://github.com/kohsuke/winsw/blob/master/doc/loggingAndErrorReporting.md for more details
+  -->
+  <log mode="roll">
+    <!--
+    <setting1/>
+    <setting2/>
+  -->
+  </log>
+
+</service>
