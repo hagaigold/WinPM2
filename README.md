@@ -18,7 +18,7 @@ Here is some of the options that I found useful:
 
 
 ## What are we going to use?
-* [PM2](https://github.com/Unitech/pm2) - PM2 is a production process manager for Node.js applications with a built-in load balancer.
+* [PM2](https://github.com/Unitech/pm2) - a production process manager for Node.js applications with a built-in load balancer.
 * [WinSW](https://github.com/winsw/winsw) - Windows Service Wrapper
 
 
