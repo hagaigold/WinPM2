@@ -18,15 +18,16 @@ Here is some of the options that I found useful:
 
 
 ## What are we going to use?
-* [PM2](https://github.com/Unitech/pm2)
+* [PM2](https://github.com/Unitech/pm2) - PM2 is a production process manager for Node.js applications with a built-in load balancer.
 * [WinSW](https://github.com/winsw/winsw) - Windows Service Wrapper
 
 
 ## Preparations
-* Clone or download `WinPM2`
-* Place it in a "central" directory/location  
-e.g. `C:\NodeApps\WinPM2`
-* `npm install`
+Clone or download `WinPM2`.  
+Place it in a "central" directory/location, e.g. `C:\NodeApps\WinPM2`, and then run:
+```
+npm install
+``` 
 
 ## Setup PM2 
 Inside the project root do the following:
