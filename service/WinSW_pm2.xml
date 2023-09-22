@@ -31,8 +31,6 @@
   
   <executable>%BASE%\pm2_service_startup.bat</executable>
 
-  <log mode="roll" />
-
   <!--
     OPTION: serviceaccount
     Defines account, under which the service should run.
