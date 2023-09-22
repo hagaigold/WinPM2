@@ -12,8 +12,8 @@ Here is some of the options that I found useful:
 
 ### Goals
 * Simple
-* Tools are localy installed  
-`NPM install -g` is not always what you think it is on windows :)
+* Install PM2 in the local node_modules folder  
+On windows, `NPM install -g` is not always what you think it is :)
 * Don't mess up with system paths (there is one exception that I will mention below)
 
 
